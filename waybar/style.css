@@ -1,0 +1,95 @@
+@import "mocha.css";
+
+* {
+    font-family: "Source Code Pro";
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @base;
+    border-bottom: 3px solid @crust;
+    color: @text;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+/* === All === */
+#custom-power,
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#clock,
+#battery,
+#network {
+    padding: 0.4rem;
+}
+/* =========== */
+
+/* === Power === */
+#custom-power {
+    color: @red;
+}
+
+#custom-power button.focused{
+    background-color: @crust;
+}
+/* ============= */
+
+/* === CPU === */
+#cpu {
+    color: @maroon;
+}
+/* =========== */
+
+/* === Memory === */
+#memory {
+    color: @peach;
+}
+/* ============== */
+
+/* === Temperature === */
+#temperature {
+    color: @yellow;
+}
+/* =================== */
+
+/* === Volume === */
+#pulseaudio {
+    color: @teal;
+}
+/* ============== */
+
+/* === Network === */
+#network {
+    color: @sapphire;
+}
+
+#network.disconnected {
+    color: @red;
+}
+/* =============== */
+
+/* === Battery === */
+#battery.full {
+    color: @green;
+}
+
+#battery.charging {
+    color: @teal;
+}
+
+#battery.discharging {
+    color: @peach;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+}
+/* =============== */
+
+/* === Clock === */
+#clock {
+    color: @lavender;
+}
+/* ============= */

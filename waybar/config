@@ -56,8 +56,8 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-plugged": "{capacity}% \uf240",
-        "format-charging": "{capacity}% \uf240",
+        "format-plugged": "{capacity}% \ue55b",
+        "format-charging": "{capacity}% \ue55b",
         "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
     },
     "network": {

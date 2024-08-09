@@ -71,15 +71,15 @@ window#waybar {
 /* =============== */
 
 /* === Battery === */
-#battery.full {
-    color: @green;
-}
-
-#battery.charging {
-    color: @teal;
+#battery {
+    color: @lavender;
 }
 
 #battery.discharging {
+    color: @teal;
+}
+
+#battery.discharging.warning {
     color: @peach;
 }
 
@@ -90,6 +90,6 @@ window#waybar {
 
 /* === Clock === */
 #clock {
-    color: @lavender;
+    color: @mauve;
 }
 /* ============= */

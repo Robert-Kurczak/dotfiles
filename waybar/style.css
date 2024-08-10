@@ -70,10 +70,6 @@ box {
     color: @lavender;
 }
 
-#battery.discharging {
-    color: @teal;
-}
-
 #battery.discharging.warning {
     color: @peach;
 }

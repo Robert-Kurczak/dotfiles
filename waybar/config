@@ -48,8 +48,11 @@
             "warning": 30,
             "critical": 15
         },
+        "interval": 1,
+        "tooltip-format": "Time: {time}\nHealth: {health}%",
         "format": "{capacity}% {icon}",
-        "format-plugged": "{capacity}% ",
+        "format-full": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "format-charging": "{capacity}% ",
         "format-icons": ["", "", "", "", ""]
     },

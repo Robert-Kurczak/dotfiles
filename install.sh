@@ -36,8 +36,10 @@ REQUIRED_PACKAGES=(
 	"alacritty"
 	"waybar"
 	"dunst"
+	"udiskie"
 	"fuzzel"
 	"yazi"
+	"vim"
 	"ttf-sourcecodepro-nerd"
 )
 

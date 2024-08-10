@@ -40,6 +40,7 @@ REQUIRED_PACKAGES=(
 	"fuzzel"
 	"yazi"
 	"vim"
+	"feh"
 	"ttf-sourcecodepro-nerd"
 )
 

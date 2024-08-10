@@ -7,6 +7,7 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias feh='feh -Zxd.'
 
 source ~/.config/bash/mocha.sh
 source ~/.config/bash/git-prompt.sh

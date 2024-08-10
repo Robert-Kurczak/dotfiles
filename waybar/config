@@ -1,53 +1,46 @@
 {
     "layer": "top",
     "position": "top",
-    "spacing": 4,
+    "spacing": 12,
     "modules-left": ["custom/power"],
     "modules-center": ["cpu", "memory", "temperature"],
     "modules-right": ["pulseaudio", "network", "battery", "clock"],
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "\uf023",
-            "unlocked": "\uf09c"
-        }
-    },
     "custom/power": {
-        "format":"\uf011",
+        "format":"",
         "on-click-release": "exec ~/.config/waybar/scripts/power-menu.sh",
         "tooltip": false
     },
     "cpu": {
-        "format": "{usage}% \uf2db"
+        "format": "{usage}% "
     },
     "memory": {
         "interval": 30,
-        "format": "{used:0.1f}G \uf538",
+        "format": "{used:0.1f}G ",
         "max-length": 10
     },
     "temperature": {
         "critical-threshold": 80,
-        "format-critical": "{temperatureC}°C \uf2c7",
-        "format": "{temperatureC}°C \uf2c9"
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
-        "format-muted": "\uf026",
+        "format-muted": "",
         "format-icons": {
-            "headphone": "\uf025",
-            "headset": "\uf590",
-            "default": ["\uf027", "\uf028"]
+            "headphone": "",
+            "headset": "",
+            "default": ["", ""]
         },
         "scroll-step": 1,
         "on-click": "pavucontrol",
         "ignored-sinks": ["Easy Effects Sink"]
     },
-    "clock": {
-        "timezone": "Europe/Warsaw",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%d.%m.%Y}"
+    "network": {
+        "format-wifi": "󰖩",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "󰖪",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "battery": {
         "states": {
@@ -56,16 +49,14 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-plugged": "{capacity}% \ue55b",
-        "format-charging": "{capacity}% \ue55b",
-        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+        "format-plugged": "{capacity}% ",
+        "format-charging": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
     },
-    "network": {
-        "format-wifi": "\uf1eb",
-        "tooltip-format": "{ifname} via {gwaddr} \uf796",
-        "format-linked": "{ifname} (No IP) \uf796",
-        "format-disconnected": "\u26a0",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "clock": {
+        "timezone": "Europe/Warsaw",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d.%m.%Y}"
     }
 }
 

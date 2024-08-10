@@ -1,7 +1,7 @@
 @import "mocha.css";
 
 * {
-    font-family: "Source Code Pro";
+    font-family: "SauceCodePro NFP Medium";
     font-size: 14px;
 }
 
@@ -13,18 +13,13 @@ window#waybar {
     transition-duration: 0.3s;
 }
 
-/* === All === */
-#custom-power,
-#cpu,
-#memory,
-#temperature,
-#pulseaudio,
-#clock,
-#battery,
-#network {
-    padding: 0.4rem;
+box {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
 }
-/* =========== */
+
 
 /* === Power === */
 #custom-power {

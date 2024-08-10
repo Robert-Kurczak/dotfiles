@@ -37,6 +37,8 @@ REQUIRED_PACKAGES=(
 	"waybar"
 	"dunst"
 	"fuzzel"
+	"yazi"
+	"ttf-sourcecodepro-nerd"
 )
 
 echo "Installing packages: ${REQUIRED_PACKAGES[@]}"

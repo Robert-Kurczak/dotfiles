@@ -53,7 +53,7 @@
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% ",
         "format-plugged": "{capacity}% ",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {

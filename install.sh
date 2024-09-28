@@ -71,9 +71,8 @@ destination_grub_theme_path="/usr/share/grub/themes/catppuccin-mocha-grub-theme"
 
 if can_place_file $destination_grub_theme_path; then
 	sudo cp -r $source_grub_theme_path $destination_grub_theme_path
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
-
-sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # feh
 source_feh_desktop_path="$HOME/.config/feh/feh.desktop"
@@ -81,5 +80,14 @@ destination_feh_desktop_path="/usr/share/applications/feh.desktop"
 
 if can_place_file $destination_feh_desktop_path; then
 	sudo ln -sf $source_feh_desktop_path $destination_feh_desktop_path
+fi
+
+# udev wakeup rules
+source_udev_wakeup_rules_path="$HOME/.config/udev-rules/50-wake-on-device.rules"
+destination_udev_wakeup_rules_path="/etc/udev/rules.d/50-wake-on-device.rules"
+
+if can_place_file $source_udev_wakeup_rules_path; then
+	sudo ln -sf $source_udev_wakeup_rules_path $destination_udev_wakeup_rules_path
+	sudo udevadm control -R
 fi
 # ===========================

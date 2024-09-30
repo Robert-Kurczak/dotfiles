@@ -42,6 +42,9 @@ REQUIRED_PACKAGES=(
 	"vim"
 	"feh"
 	"ttf-sourcecodepro-nerd"
+	"pipewire"
+	"wireplumber"
+	"xdg-desktop-portal-wlr"
 )
 
 echo "Installing packages: ${REQUIRED_PACKAGES[@]}"
@@ -83,10 +86,10 @@ if can_place_file $destination_feh_desktop_path; then
 fi
 
 # udev wakeup rules
-source_udev_wakeup_rules_path="$HOME/.config/udev-rules/50-wake-on-device.rules"
-destination_udev_wakeup_rules_path="/etc/udev/rules.d/50-wake-on-device.rules"
+source_udev_wakeup_rules_path="$HOME/.config/udev-rules/99-wake-on-device.rules"
+destination_udev_wakeup_rules_path="/etc/udev/rules.d/99-wake-on-device.rules"
 
-if can_place_file $source_udev_wakeup_rules_path; then
+if can_place_file $destination_udev_wakeup_rules_path; then
 	sudo ln -sf $source_udev_wakeup_rules_path $destination_udev_wakeup_rules_path
 	sudo udevadm control -R
 fi

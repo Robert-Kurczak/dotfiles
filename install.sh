@@ -18,7 +18,7 @@ done
 can_place_file() {
 	local file_path="$1"
 
-	if [[ "$opt_auto_confirm" = false && -e "$file_path" ]]; then
+	if sudo [ -e "$file_path" ] && [ "$opt_auto_confirm" = false ]; then
 		read -p "File $file_path already exists. Do you want to replace it? (y/n): " choice
 		choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
 
@@ -35,7 +35,7 @@ REQUIRED_PACKAGES=(
 	"hyprland"
 	"alacritty"
 	"waybar"
-	"dunst"
+	"swaync"
 	"udiskie"
 	"fuzzel"
 	"yazi"
@@ -43,8 +43,12 @@ REQUIRED_PACKAGES=(
 	"feh"
 	"ttf-sourcecodepro-nerd"
 	"pipewire"
+	"pipewire-pulse"
 	"wireplumber"
-	"xdg-desktop-portal-wlr"
+	"xdg-desktop-portal-hyprland"
+	"bluez"
+	"bluez-utils"
+	"bluez-obex"
 )
 
 echo "Installing packages: ${REQUIRED_PACKAGES[@]}"
@@ -92,5 +96,16 @@ destination_udev_wakeup_rules_path="/etc/udev/rules.d/99-wake-on-device.rules"
 if can_place_file $destination_udev_wakeup_rules_path; then
 	sudo ln -sf $source_udev_wakeup_rules_path $destination_udev_wakeup_rules_path
 	sudo udevadm control -R
+fi
+
+# bluetooth
+source_polkit_blueman_rules_path="$HOME/.config/polkit-rules/51-blueman.rules"
+destination_polkit_blueman_rules_path="/etc/polkit-1/rules.d/51-blueman.rules"
+
+if can_place_file $destination_polkit_blueman_rules_path; then
+	echo "installing bluetooth"
+	sudo ln -sf $source_polkit_blueman_rules_path $destination_polkit_blueman_rules_path
+	sudo usermod -aG lp $USER
+	sudo systemctl enable bluetooth.service
 fi
 # ===========================

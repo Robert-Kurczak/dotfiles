@@ -54,6 +54,8 @@ REQUIRED_PACKAGES=(
 	"avahi"
 	"nss-mdns"
 	"system-config-printer"
+	"sane-airscan"
+	"simple-scan"
 )
 
 REQUIRED_AUR_PACKAGES=(

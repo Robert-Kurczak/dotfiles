@@ -49,6 +49,15 @@ REQUIRED_PACKAGES=(
 	"bluez"
 	"bluez-utils"
 	"bluez-obex"
+	"cups"
+	"cups-pdf"
+	"avahi"
+	"nss-mdns"
+	"system-config-printer"
+)
+
+REQUIRED_AUR_PACKAGES=(
+	"brother-dcp1610w"	
 )
 
 echo "Installing packages: ${REQUIRED_PACKAGES[@]}"
@@ -103,9 +112,20 @@ source_polkit_blueman_rules_path="$HOME/.config/polkit-rules/51-blueman.rules"
 destination_polkit_blueman_rules_path="/etc/polkit-1/rules.d/51-blueman.rules"
 
 if can_place_file $destination_polkit_blueman_rules_path; then
-	echo "installing bluetooth"
 	sudo ln -sf $source_polkit_blueman_rules_path $destination_polkit_blueman_rules_path
 	sudo usermod -aG lp $USER
 	sudo systemctl enable bluetooth.service
+fi
+
+# printer
+sudo systemctl enable cups.service
+sudo systemctl enable avahi-daemon.service
+
+source_nsswitch_path="$HOME/.config/nsswitch.conf"
+destination_nsswitch_path="/etc/nsswitch.conf"
+
+if can_place_file $destination_nsswitch_path; then
+	sudo ln -sf $source_nsswitch_path $destination_nsswitch_path
+	sudo systemctl restart cups.service
 fi
 # ===========================

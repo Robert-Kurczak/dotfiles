@@ -56,6 +56,7 @@ REQUIRED_PACKAGES=(
 	"system-config-printer"
 	"sane-airscan"
 	"simple-scan"
+	"nwg-displays"
 )
 
 REQUIRED_AUR_PACKAGES=(

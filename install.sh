@@ -40,7 +40,7 @@ REQUIRED_PACKAGES=(
 	"fuzzel"
 	"yazi"
 	"vim"
-	"feh"
+	"eog"
 	"ttf-sourcecodepro-nerd"
 	"pipewire"
 	"pipewire-pulse"
@@ -58,6 +58,8 @@ REQUIRED_PACKAGES=(
 	"simple-scan"
 	"nwg-displays"
 	"nwg-look"
+	"networkmanager"
+	"nm-connection-editor"
 )
 
 REQUIRED_AUR_PACKAGES=(
@@ -95,13 +97,10 @@ if can_place_file $destination_grub_theme_path; then
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
-# feh
-source_feh_desktop_path="$HOME/.config/feh/feh.desktop"
-destination_feh_desktop_path="/usr/share/applications/feh.desktop"
-
-if can_place_file $destination_feh_desktop_path; then
-	sudo ln -sf $source_feh_desktop_path $destination_feh_desktop_path
-fi
+# eye of GNOME
+xdg-mime default org.gnome.eog.desktop image/jpg
+xdg-mime default org.gnome.eog.desktop image/jpeg
+xdg-mime default org.gnome.eog.desktop image/png
 
 # udev wakeup rules
 source_udev_wakeup_rules_path="$HOME/.config/udev-rules/99-wake-on-device.rules"

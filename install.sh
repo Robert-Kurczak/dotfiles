@@ -57,10 +57,12 @@ REQUIRED_PACKAGES=(
 	"sane-airscan"
 	"simple-scan"
 	"nwg-displays"
+	"nwg-look"
 )
 
 REQUIRED_AUR_PACKAGES=(
-	"brother-dcp1610w"	
+	"brother-dcp1610w"
+	"catppuccin-gtk-theme-mocha"
 )
 
 echo "Installing packages: ${REQUIRED_PACKAGES[@]}"

@@ -61,6 +61,7 @@ REQUIRED_PACKAGES=(
 	"networkmanager"
 	"nm-connection-editor"
 	"hyprlock"
+	"hypridle"
 )
 
 REQUIRED_AUR_PACKAGES=(

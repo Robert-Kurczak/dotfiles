@@ -67,6 +67,7 @@ REQUIRED_PACKAGES=(
 REQUIRED_AUR_PACKAGES=(
 	"brother-dcp1610w"
 	"catppuccin-gtk-theme-mocha"
+	"hyprshot"
 )
 
 echo "Installing packages: ${REQUIRED_PACKAGES[@]}"
@@ -134,4 +135,7 @@ if can_place_file $destination_nsswitch_path; then
 	sudo ln -sf $source_nsswitch_path $destination_nsswitch_path
 	sudo systemctl restart cups.service
 fi
+
+# hyprshot
+mkdir -p $HOME/Pictures/Screenshots
 # ===========================

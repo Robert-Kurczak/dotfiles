@@ -60,6 +60,7 @@ REQUIRED_PACKAGES=(
 	"nwg-look"
 	"networkmanager"
 	"nm-connection-editor"
+	"hyprlock"
 )
 
 REQUIRED_AUR_PACKAGES=(

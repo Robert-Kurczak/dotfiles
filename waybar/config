@@ -1,13 +1,25 @@
 {
     "layer": "top",
     "position": "top",
-    "modules-left": ["custom/power"],
+    "modules-left": ["custom/power", "hyprland/workspaces"],
     "modules-center": ["cpu", "memory", "temperature"],
     "modules-right": ["pulseaudio", "network", "battery", "clock"],
     "custom/power": {
         "format":"",
         "on-click-release": "exec ~/.config/scripts/power-menu.sh",
         "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5
+        },
+    "sort-by-number": true
     },
     "cpu": {
         "format": "{usage}% "

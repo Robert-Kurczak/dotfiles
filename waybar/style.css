@@ -8,7 +8,6 @@
 window#waybar {
     background-color: @base;
     border-bottom: 3px solid @crust;
-    color: @text;
     transition-property: background-color;
     transition-duration: 0.3s;
 }
@@ -31,6 +30,28 @@ label {
     background-color: @crust;
 }
 /* ============= */
+
+/* === Workspaces === */
+#workspaces {
+    margin: 0 2rem;
+    padding: 0;
+}
+
+#workspaces *{
+    margin: 0;
+    padding: 0 0.15rem;
+    font-size: 1rem;
+}
+
+#workspaces button {
+    color: @surface1;
+}
+
+#workspaces button.active {
+    color: @lavender;
+}
+
+/* ================== */
 
 /* === CPU === */
 #cpu {

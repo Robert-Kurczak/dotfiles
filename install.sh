@@ -39,6 +39,7 @@ REQUIRED_PACKAGES=(
 	"udiskie"
 	"fuzzel"
 	"yazi"
+	"fd"
 	"vim"
 	"eog"
 	"ttf-sourcecodepro-nerd"

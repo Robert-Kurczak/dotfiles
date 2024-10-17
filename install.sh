@@ -63,6 +63,8 @@ REQUIRED_PACKAGES=(
 	"nm-connection-editor"
 	"hyprlock"
 	"hypridle"
+	"qt5-wayland"
+	"qt6-wayland"
 )
 
 REQUIRED_AUR_PACKAGES=(

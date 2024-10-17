@@ -65,6 +65,7 @@ REQUIRED_PACKAGES=(
 	"hypridle"
 	"qt5-wayland"
 	"qt6-wayland"
+	"polkit-gnome"
 )
 
 REQUIRED_AUR_PACKAGES=(

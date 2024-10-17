@@ -1,7 +1,6 @@
 {
     "layer": "top",
     "position": "top",
-    "spacing": 12,
     "modules-left": ["custom/power"],
     "modules-center": ["cpu", "memory", "temperature"],
     "modules-right": ["pulseaudio", "network", "battery", "clock"],

@@ -14,12 +14,13 @@ window#waybar {
 }
 
 box {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+    padding: 0.15rem 0.25rem;
 }
 
+label {
+    margin: 0rem 0.25rem;
+    padding: 0.25rem;
+}
 
 /* === Power === */
 #custom-power {

@@ -8,6 +8,7 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias vi='vim'
+alias bonsai='cbonsai -li'
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

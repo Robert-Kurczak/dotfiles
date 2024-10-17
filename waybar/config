@@ -7,7 +7,7 @@
     "modules-right": ["pulseaudio", "network", "battery", "clock"],
     "custom/power": {
         "format":"",
-        "on-click-release": "exec ~/.config/waybar/scripts/power-menu.sh",
+        "on-click-release": "exec ~/.config/scripts/power-menu.sh",
         "tooltip": false
     },
     "cpu": {

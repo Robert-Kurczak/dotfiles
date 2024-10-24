@@ -33,7 +33,7 @@ can_place_file() {
 # ========= Packages ========
 REQUIRED_PACKAGES=(
 	"hyprland"
-	"alacritty"
+	"foot"
 	"waybar"
 	"swaync"
 	"udiskie"

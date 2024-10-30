@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ========= Options =========
 opt_auto_confirm=false
 
@@ -40,48 +42,45 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ../
+rm -rf yay
 
 source AUR_PACKAGES.sh
 echo "Installing aur packages: ${AUR_PACKAGES[@]}"
 yay -S ${AUR_PACKAGES[@]}
 # ===========================
 
-# ========= Configs =========
-# bashrc
-source_bashrc_path="$HOME/.config/bash/.bashrc"
-destination_bashrc_path="$HOME/.bashrc"
-
-if can_place_file $destination_bashrc_path; then
-	ln -sf $source_bashrc_path $destination_bashrc_path
+# ========= Nvidia =========
+read -p "Do you want to install Nvidia drivers? (y/n)" choice
+choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
+if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
+	echo "Installing Nvidia drivers. May God have mercy"
+	./install-nvidia-drivers.sh
 fi
+# ===========================
 
+# ========= Configs =========
 # grub
 source_grub_path="$HOME/.config/grub/grub"
 destination_grub_path="/etc/default/grub"
 
 if can_place_file $destination_grub_path; then
-	sudo cp $source_grub_path $destination_grub_path
+	sudo cp -f $source_grub_path $destination_grub_path
 fi
 
 source_grub_theme_path="$HOME/.config/grub/catppuccin-mocha-grub-theme/"
 destination_grub_theme_path="/usr/share/grub/themes/catppuccin-mocha-grub-theme"
 
 if can_place_file $destination_grub_theme_path; then
-	sudo cp -r $source_grub_theme_path $destination_grub_theme_path
+	sudo cp -rf $source_grub_theme_path $destination_grub_theme_path
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
-
-# eye of GNOME
-xdg-mime default org.gnome.eog.desktop image/jpg
-xdg-mime default org.gnome.eog.desktop image/jpeg
-xdg-mime default org.gnome.eog.desktop image/png
 
 # udev wakeup rules
 source_udev_wakeup_rules_path="$HOME/.config/udev-rules/99-wake-on-device.rules"
 destination_udev_wakeup_rules_path="/etc/udev/rules.d/99-wake-on-device.rules"
 
 if can_place_file $destination_udev_wakeup_rules_path; then
-	sudo ln -sf $source_udev_wakeup_rules_path $destination_udev_wakeup_rules_path
+	sudo cp -f $source_udev_wakeup_rules_path $destination_udev_wakeup_rules_path
 	sudo udevadm control -R
 fi
 
@@ -90,7 +89,7 @@ source_polkit_blueman_rules_path="$HOME/.config/polkit-rules/51-blueman.rules"
 destination_polkit_blueman_rules_path="/etc/polkit-1/rules.d/51-blueman.rules"
 
 if can_place_file $destination_polkit_blueman_rules_path; then
-	sudo ln -sf $source_polkit_blueman_rules_path $destination_polkit_blueman_rules_path
+	sudo cp -f $source_polkit_blueman_rules_path $destination_polkit_blueman_rules_path
 	sudo usermod -aG lp $USER
 	sudo systemctl enable bluetooth.service
 fi
@@ -103,9 +102,25 @@ source_nsswitch_path="$HOME/.config/nsswitch.conf"
 destination_nsswitch_path="/etc/nsswitch.conf"
 
 if can_place_file $destination_nsswitch_path; then
-	sudo ln -sf $source_nsswitch_path $destination_nsswitch_path
+	sudo cp -f $source_nsswitch_path $destination_nsswitch_path
 	sudo systemctl restart cups.service
 fi
+
+# bashrc
+source_bashrc_path="$HOME/.config/bash/.bashrc"
+destination_bashrc_path="$HOME/.bashrc"
+
+if can_place_file $destination_bashrc_path; then
+	ln -sf $source_bashrc_path $destination_bashrc_path
+fi
+
+# eye of GNOME
+xdg-mime default org.gnome.eog.desktop image/jpg
+xdg-mime default org.gnome.eog.desktop image/jpeg
+xdg-mime default org.gnome.eog.desktop image/png
+
+# GTK
+gsettings set org.gnome.desktop.wm.preferences button-layout :
 
 # hyprshot
 mkdir -p $HOME/Pictures/Screenshots

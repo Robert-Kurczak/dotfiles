@@ -43,8 +43,7 @@ cd ../
 
 source AUR_PACKAGES.sh
 echo "Installing aur packages: ${AUR_PACKAGES[@]}"
-sudo yay -S ${AUR_PACKAGES[@]}
-
+yay -S ${AUR_PACKAGES[@]}
 # ===========================
 
 # ========= Configs =========

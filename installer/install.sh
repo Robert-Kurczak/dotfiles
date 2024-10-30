@@ -31,52 +31,20 @@ can_place_file() {
 # ===========================
 
 # ========= Packages ========
-REQUIRED_PACKAGES=(
-	"hyprland"
-	"foot"
-	"waybar"
-	"swaync"
-	"udiskie"
-	"fuzzel"
-	"yazi"
-	"fd"
-	"vim"
-	"eog"
-	"ttf-sourcecodepro-nerd"
-	"pipewire"
-	"pipewire-pulse"
-	"wireplumber"
-	"xdg-desktop-portal-hyprland"
-	"bluez"
-	"bluez-utils"
-	"bluez-obex"
-	"cups"
-	"cups-pdf"
-	"avahi"
-	"nss-mdns"
-	"system-config-printer"
-	"sane-airscan"
-	"simple-scan"
-	"nwg-displays"
-	"nwg-look"
-	"networkmanager"
-	"nm-connection-editor"
-	"hyprlock"
-	"hypridle"
-	"qt5-wayland"
-	"qt6-wayland"
-	"polkit-gnome"
-)
+source OFFICIAL_PACKAGES.sh
+echo "Installing packages: ${OFFICIAL_PACKAGES[@]}"
+sudo pacman -S ${OFFICIAL_PACKAGES[@]}
 
-REQUIRED_AUR_PACKAGES=(
-	"brother-dcp1610w"
-	"catppuccin-gtk-theme-mocha"
-	"hyprshot"
-)
+echo "Installing yay"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../
 
-echo "Installing packages: ${REQUIRED_PACKAGES[@]}"
+source AUR_PACKAGES.sh
+echo "Installing aur packages: ${AUR_PACKAGES[@]}"
+sudo yay -S ${AUR_PACKAGES[@]}
 
-sudo pacman -S ${REQUIRED_PACKAGES[@]}
 # ===========================
 
 # ========= Configs =========

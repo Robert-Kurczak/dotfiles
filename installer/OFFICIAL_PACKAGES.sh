@@ -1,5 +1,6 @@
 OFFICIAL_PACKAGES=(
 # Backend
+"grub"                              # Bootloader
 "xdg-desktop-portal-hyprland"       # XDG backend
 "qt5-wayland"                       # Qt5 module
 "qt6-wayland"                       # Qt6 module

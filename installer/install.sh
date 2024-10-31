@@ -49,22 +49,26 @@ echo "Installing aur packages: ${AUR_PACKAGES[@]}"
 yay -S ${AUR_PACKAGES[@]}
 # ===========================
 
+nvidia_installed=false
 # ========= Nvidia =========
-read -p "Do you want to install Nvidia drivers? (y/n)" choice
+read -p "Do you want to install Nvidia drivers? (y/n): " choice
 choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
 if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
 	echo "Installing Nvidia drivers. May God have mercy"
 	./install-nvidia-drivers.sh
+	nvidia_installed=true
 fi
 # ===========================
 
 # ========= Configs =========
 # grub
-source_grub_path="$HOME/.config/grub/grub"
-destination_grub_path="/etc/default/grub"
+if ! $nvidia_installed; then
+	source_grub_path="$HOME/.config/grub/grub"
+	destination_grub_path="/etc/default/grub"
 
-if can_place_file $destination_grub_path; then
-	sudo cp -f $source_grub_path $destination_grub_path
+	if can_place_file $destination_grub_path; then
+		sudo cp -f $source_grub_path $destination_grub_path
+	fi
 fi
 
 source_grub_theme_path="$HOME/.config/grub/catppuccin-mocha-grub-theme/"
@@ -73,15 +77,6 @@ destination_grub_theme_path="/usr/share/grub/themes/catppuccin-mocha-grub-theme"
 if can_place_file $destination_grub_theme_path; then
 	sudo cp -rf $source_grub_theme_path $destination_grub_theme_path
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
-fi
-
-# udev wakeup rules
-source_udev_wakeup_rules_path="$HOME/.config/udev-rules/99-wake-on-device.rules"
-destination_udev_wakeup_rules_path="/etc/udev/rules.d/99-wake-on-device.rules"
-
-if can_place_file $destination_udev_wakeup_rules_path; then
-	sudo cp -f $source_udev_wakeup_rules_path $destination_udev_wakeup_rules_path
-	sudo udevadm control -R
 fi
 
 # bluetooth

@@ -25,6 +25,7 @@ OFFICIAL_PACKAGES=(
 "simple-scan"                       # GUI scanners manager
 # Ecosystem
 "hyprland"                          # Window manager
+"hyprpaper"                         # Wallpaper manager
 "hyprlock"                          # Screen locking utility
 "hypridle"                          # Idle daemon
 "swaync"                            # Notification daemon

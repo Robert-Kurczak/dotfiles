@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DRIVERS_PACKAGES=(
+    "linux-headers"                     # Required by dkms headers
     "nvidia-dkms"                       # Nvidia GPU drivers
     "nvidia-utils"                      # More Nvidia drivers
     "nvidia-settings"                   # GUI config utility

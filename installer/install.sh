@@ -55,7 +55,7 @@ read -p "Do you want to install Nvidia drivers? (y/n): " choice
 choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
 if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
 	echo "Installing Nvidia drivers. May God have mercy"
-	sudo ./install-nvidia-drivers.sh
+	. ./install-nvidia-drivers.sh
 	nvidia_installed=true
 fi
 # ===========================

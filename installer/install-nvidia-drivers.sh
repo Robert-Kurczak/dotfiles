@@ -14,7 +14,7 @@ source_mkinitcpio_path="$HOME/.config/mkinitcpio.conf"
 destination_mkinitcpio_path="/etc/mkinitcpio.conf"
 
 sudo cp -f $source_mkinitcpio_path $destination_mkinitcpio_path
-sudo echo "options nvidia_drm modeset=1 fbdev=1" >> /etc/modprobe.d/nvidia.conf
+sudo echo "options nvidia_drm modeset=1 fbdev=1" > /etc/modprobe.d/nvidia.conf
 
 source_grub_path="$HOME/.config/grub/grub-nvidia"
 destination_grub_path="/etc/default/grub"

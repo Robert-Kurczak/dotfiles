@@ -82,6 +82,14 @@ fi
 # sddm
 sudo systemctl enable sddm.service
 
+# logind
+source_logind_conf_path="$HOME/.config/systemd/logind.conf"
+destination_logind_conf_path="/etc/systemd/logind.conf"
+
+if can_place_file $destination_logind_conf_path; then
+	sudo cp -f $source_logind_conf_path $destination_logind_conf_path
+fi
+
 # bluetooth
 source_polkit_blueman_rules_path="$HOME/.config/polkit-rules/51-blueman.rules"
 destination_polkit_blueman_rules_path="/etc/polkit-1/rules.d/51-blueman.rules"

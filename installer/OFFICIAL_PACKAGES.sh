@@ -7,6 +7,7 @@ OFFICIAL_PACKAGES=(
 "pipewire"                          # Multimedia framework
 "pipewire-pulse"                    # Audio server
 "wireplumber"                       # Pipewire session manager
+"sddm"                              # Login manager
 # Network
 "networkmanager"                    # Network config utility
 "nm-connection-editor"              # GUI connections editor

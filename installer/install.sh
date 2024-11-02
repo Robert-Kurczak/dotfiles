@@ -79,6 +79,9 @@ if can_place_file $destination_grub_theme_path; then
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
+# sddm
+sudo systemctl enable sddm.service
+
 # bluetooth
 source_polkit_blueman_rules_path="$HOME/.config/polkit-rules/51-blueman.rules"
 destination_polkit_blueman_rules_path="/etc/polkit-1/rules.d/51-blueman.rules"

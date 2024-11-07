@@ -42,4 +42,5 @@ OFFICIAL_PACKAGES=(
 "eog"                               # GUI image viewer
 "nwg-displays"                      # GUI hyprland displays editor
 "nwg-look"                          # GUI GTK editor
+"calcurse"                          # TUI calendar
 )

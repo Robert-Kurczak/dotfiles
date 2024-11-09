@@ -1,4 +1,8 @@
 program_options:
   automount: true
   notify: true
-  file_manager: "alacritty -e yazi"
+  file_manager: "foot -e yazi"
+  device_mounted: [browse]
+
+notifications:
+  device_added: false

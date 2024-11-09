@@ -71,7 +71,7 @@ if ! $nvidia_installed; then
 	fi
 fi
 
-source_grub_theme_path="$HOME/.config/grub/catppuccin-mocha-grub-theme/"
+source_grub_theme_path="$HOME/.config/grub/catppuccin-mocha-grub-theme/."
 destination_grub_theme_path="/usr/share/grub/themes/catppuccin-mocha-grub-theme"
 
 if can_place_file $destination_grub_theme_path; then
@@ -80,6 +80,20 @@ if can_place_file $destination_grub_theme_path; then
 fi
 
 # sddm
+source_sddm_theme_dir_path="$HOME/.config/sddm/catppuccin-mocha/."
+destination_sddm_theme_dir_path="/usr/share/sddm/themes/catppuccin-mocha"
+
+if can_place_file $destination_sddm_theme_dir_path; then
+	sudo cp -rf $source_sddm_theme_dir_path $destination_sddm_theme_dir_path
+fi
+
+source_sddm_theme_config_path="$HOME/.config/sddm/theme.conf"
+destination_sddm_theme_config_path="/etc/sddm.conf.d/theme.conf"
+
+if can_place_file $destination_sddm_theme_config_path; then
+	sudo cp -f $source_sddm_theme_config_path $destination_sddm_theme_config_path
+fi
+
 sudo systemctl enable sddm.service
 
 # logind

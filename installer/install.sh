@@ -134,6 +134,21 @@ if can_place_file $destination_bashrc_path; then
 	ln -sf $source_bashrc_path $destination_bashrc_path
 fi
 
+# vim
+source_vim_path="$HOME/.config/vim/.vim/"
+destination_vim_path="$HOME/.vim"
+
+if can_place_file $destination_vim_path; then
+	ln -sf $source_vim_path $destination_vim_path
+fi
+
+source_vimrc_path="$HOME/.config/vim/.vimrc"
+destination_vimrc_path="$HOME/.vimrc"
+
+if can_place_file $destination_vimrc_path; then
+	ln -sf $source_vimrc_path $destination_vimrc_path
+fi
+
 # eye of GNOME
 xdg-mime default org.gnome.eog.desktop image/jpg
 xdg-mime default org.gnome.eog.desktop image/jpeg
